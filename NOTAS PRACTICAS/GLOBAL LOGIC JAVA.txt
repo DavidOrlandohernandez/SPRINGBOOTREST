@@ -1,0 +1,184 @@
+Mid DevOps - Job Description
+Job Description
+Duties and Responsibilities:
+	● Implement and optimize DevOps Infrastructure as Code (IaC) and CI-CD pipeline tools.
+	● Collaborate with Agile development teams to enhance code quality and improve delivery speed.
+	● Stay informed about new technology trends and provide technical recommendations for project
+delivery and operational services.
+	● Contribute to the design and scaling of future cloud environments.
+	● Assist in auditing the security of the Imprivata Cloud/SaaS hosting environment and processes.
+	● Ensure all changes to production environments are properly documented, tested, and approved.
+	● Work with engineering and business stakeholders to support regular software updates while
+maintaining high availability.
+Job Responsibilities
+Required:
+	● 2 years experience working in the Software Development field.
+	● Strong communication Skills.
+	● Proficiency Linux Skills.
+	● Solid understanding of Git.
+	● Experience with scripting languages such as Python or Bash.
+	● Familiarity with a programming language (Java or C# preferred).
+	● Experience with Docker and container hosting technologies such as Kubernetes (K8s) (Helm
+experience preferred).
+	● Experience with AWS technologies such as EKS/ECS and RDS.
+	● Familiarity with GitHub and GitHub Actions.
+Desirable:
+	● Experience with Crossplane.
+	● The ability to create infrastructure as code using Terraform.
+	● Some experience with SpringBoot.
+	● Working knowledge of server, networking, operating system, database, and application
+performance management, monitoring and alerting system, load balancing, and security systems.
+
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+	Mid DevOps - Descripción del trabajo
+		Descripción del trabajo
+		Deberes y Responsabilidades:
+		
+		● Implementar y optimizar las herramientas de canalización de CI-CD y infraestructura de DevOps como código (IaC).
+				IaC, o "Infrastructure as Code" (Infraestructura como Código), es un enfoque para gestionar y aprovisionar la 
+				infraestructura de TI a través de archivos de configuración legibles y ejecutables, en lugar de realizar 
+				configuraciones manuales o a través de herramientas gráficas.
+				
+				Pipeline de CI/CD: Configuras un pipeline en Azure Pipelines que ejecuta los scripts de IaC cada vez que hay un 
+				cambio en el repositorio. Despliegue Automático: El pipeline puede desplegar la infraestructura en Azure automáticamente,
+				aplicando los cambios de manera controlada.
+				
+		● Colaborar con equipos de desarrollo ágiles para mejorar la calidad del código y mejorar la velocidad de entrega.
+		● Manténgase informado sobre las nuevas tendencias tecnológicas y brinde recomendaciones técnicas para el proyecto.
+		  servicios operativos y de entrega.
+		● Contribuir al diseño y escalado de futuros entornos de nube.
+		● Ayudar a auditar la seguridad del entorno y los procesos de alojamiento Imprivata Cloud/SaaS.
+			Acceso Único (Single Sign-On, SSO): Permite a los usuarios acceder a múltiples aplicaciones con una sola autenticación, simplificando el proceso de inicio de sesión y mejorando la seguridad.
+			Autenticación Multifactor (MFA): Requiere que los usuarios proporcionen múltiples formas de verificación antes de acceder a sistemas sensibles, lo que añade una capa adicional de seguridad.
+			Gestión de Identidad y Acceso (IAM): Ofrece herramientas para gestionar las identidades de los usuarios y sus permisos de acceso a recursos y aplicaciones.
+			Despliegue en la Nube: Al ser una solución en la nube, permite a las organizaciones evitar la complejidad de gestionar la infraestructura por sí mismas, reduciendo costos y mejorando la escalabilidad.
+			
+		● Asegúrese de que todos los cambios en los entornos de producción estén debidamente documentados, probados y aprobados.
+		
+		● Trabajar con partes interesadas de ingeniería y negocios para respaldar actualizaciones periódicas de software mientras
+			manteniendo una alta disponibilidad.
+			Responsabilidades laborales
+		
+		Requerido:
+		● 2 años de experiencia trabajando en el campo del Desarrollo de Software. *
+		● Fuertes habilidades de comunicación. *
+		● Habilidades de dominio de Linux. 
+		● Sólido conocimiento de Git. *
+		● Experiencia con lenguajes de scripting como Python o Bash. 
+		● Familiaridad con un lenguaje de programación (preferiblemente Java o C#).
+		● Experiencia con Docker y tecnologías de alojamiento de contenedores como Kubernetes (K8s) (Helm OPenShift
+		experiencia preferida).
+			# 1. Imagen base -> alpine, debian, o ubuntu
+			FROM openjdk:11-jre-slim
+			# 2. Establece el directorio de trabajo
+			WORKDIR /app
+			# 3. Copia los archivos jar en el contenedor
+			COPY target/myapp.jar /app/myapp.jar
+			# 4. Define variables de entorno
+			ENV JAVA_OPTS="-Xms512m -Xmx1024m"
+			# 5. Expone un puerto
+			EXPOSE 8080
+			# 6. Comando de inicio
+			CMD ["java", "-jar", "myapp.jar"]
+			Escribir el Dockerfile: Definir la imagen base, copiar los archivos necesarios, instalar dependencias, y definir el comando de inicio.
+			Construir la Imagen: Utilizar el comando docker build para crear la imagen a partir del Dockerfile.				
+				docker build -t myapp:latest .
+			Ejecutar un Contenedor: Usar el comando docker run para iniciar un contenedor desde la imagen.						
+				docker run -p 8080:8080 myapp:latest
+		● Experiencia con tecnologías AWS como EKS/ECS y RDS.
+			IAM - Identity and Acces Managment
+			EC2 - Elastic compute cloud
+			  * EBS - Elastic Back Store 
+			  * AMI - Amazon Machine Image
+			EC2 Image Buiilder
+		● Familiaridad con GitHub y GitHub Actions.
+			Gitlab + GitHub and SVN
+		
+		
+		Deseable:
+		● Experiencia con Crossplane.
+		● La capacidad de crear infraestructura como código utilizando Terraform.
+		● Alguna experiencia con SpringBoot.		
+		● Conocimiento práctico de servidores, redes, sistemas operativos, bases de datos y aplicaciones.
+		gestión del rendimiento, sistema de seguimiento y alerta, equilibrio de carga y sistemas de seguridad.
+		
+		
+		
+		
+		
+1.::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+			JAVA WITH SPRINGBOOT.
+		
+		
+		1.- QUESTION #1: Do you have experience using Spring Boot? Have you ever used Spring Boot?
+			ANSWER: Yes i have experience using SpringBoot FrameWork. specifically creating web 
+					WEB services with the REST standar. You know estatus value like 200, 400, 500
+					also some verbs or methods of HTTP protocol GET, POST, DELETE, PUT, PATCH. And
+					style of comunication with him clients is uising media type: JSON FORMAT. I 
+					Usually use this style or format.
+		
+		2.- QUESTION #2: What's the diference between SpringBoot and Spring?
+			ANSWER   Ok, i mean that in general Spring framework is the base and can be more configurable.
+					 and springboot its too easyer and faster to use. and some specifically charactestic 
+					 is can use starters packs and include serverletes like TOMCAT AND JETTY. this is for SBF.
+					 *  spring-boot-starter-web      : For use standar REST.
+					 *  spring-boot-starter-data-jpa : For Java Persistence API. as ORM and Pool of conexion whith Hikari
+					 *  spring-boot-starter-security : for the SpringBoot Security whith diferents providers.
+					 *  spring-boot-starter-actuator : for the healthchek probes liveness and Readinees 
+		
+		3.- QUESTION #3: Have do you use notations of SpringBoot? wich notation you know?  and for what to do you use?		
+			ANSWER    Some notation as the next: 
+					  @SpringBootApplication : For the method Main() or principal method in our application. 
+					  @RestController        : Here can be define the EndPoints principal methods REST. this class manage REST requests
+											   in this class use someone methods as @GetMapping, @PostMapping, @PutMapping, y @DeleteMapping.
+					  @RequestMapping        : especifically here use the principal root for the request API. ("/ejemplo")
+					  @Autowired             : Its for dependency inyection. 
+					  @Service               : For Bussiness layer. Is the same @Component Mor specific. Type especialized. 
+					  @Componente            : For general use maybe create layer for Dao to connect reposiroty layer. 
+					  @Repository            : Repository Layer this class connect to database can be use CRUDREPOSITORY OR JPA REPOSITORY. Type especialized.
+					  @Entity                : For create databases componentes like tables. its an abstract life representation. 
+					  @Configuration         : Identify that class contains one or more @beans. for de IoC SB. 
+					  @Bean					 : Management for the springboot containers. Define one Object and can be use in other classes. With inyeccion. 
+					  @RequestParam          : Can be use for create path variables in the root for the request.
+					  @PathParam             : For define one variable without name. Only value.
+		
+		4.-  QUESTION #4: What are beans? And How are they used in Springboot? 
+			 ANSWER		
+					What is a bean?					
+						A bean is simply an object that is instantiated, assembled, and often injected into other parts of the application by Spring. 
+						The Spring container manages the life cycle of the bean, from its creation to its destruction.					
+					How do you use a bean?
+						Definition: A bean can be defined using various annotations.
+						* @Bean: In a configuration class.
+						* @Component, @Service, @Repository: For Spring to automatically detect and register the bean.
+		
+		5.- QUESTION #5: what is IoC container of SpringBoot?
+						IoC - IoC Contenedor (Inversión de Control) Spring se encarga de realizar la gestion de objetos en el entorno del contenedor de SpringBoot.
+						Quitando al programador esa carga. Gestiona todos los beans de la aplicación. Registro de Beans: Detecta las clases anotadas con @Service, 
+						@Component, @Repository, etc., y crea instancias de esos objetos.
+		
+		6.- QUESTION #6: Que es el scoup en una aplicación de SpringBoot ?
+						Resumen
+						Singleton: El bean tiene una única instancia para toda la aplicación.
+						Prototype: Se crea una nueva instancia del bean cada vez que se solicita.
+						Request: Se crea una nueva instancia por cada solicitud HTTP (en aplicaciones web).
+						Session: Se crea una nueva instancia por cada sesión de usuario.
+						Application: Similar a singleton, pero específico del contexto de la aplicación web.
+						Cada scope tiene un propósito específico, y elegir el correcto depende del ciclo de vida que necesites para tu bean en particular.
+						@Scope("prototype")
+						
+		7.- QUESTION #7: How to use Stream() and @Buildel() Java with SB; 
+						Se pueden utilizar para filtrar, mapear, reducir, y procesar elementos de colecciones de manera más sencilla.
+						Operaciones Comunes en Streams
+							- Filtrado (filter): Filtrar los elementos de una colección según una condición.
+							- Mapeo (map): Transformar los elementos de una colección.
+							- Reducción (reduce): Reducir los elementos a un solo valor (como sumar todos los elementos).
+							- Ordenado (sorted): Ordenar los elementos de la secuencia.
+						
+						El método build() en Java se utiliza principalmente en patrones de diseño como el Builder Pattern. Se usa para 
+						construir objetos complejos de una manera más legible y flexible, especialmente cuando los objetos tienen 
+						múltiples propiedades o configuraciones opcionales.
+		
+		
+	

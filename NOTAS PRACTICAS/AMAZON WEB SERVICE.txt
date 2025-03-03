@@ -1,0 +1,492 @@
+
+lIGA QUE TE PREPARA PARA EL EXAMEN.
+https://www.udemy.com/course/examenes-certified-cloud-practitioner-aws/?couponCode=AGOSTO2024
+
+
+Modelo de despliegues en Cloud:
+Privado, publico, hibrido.
+
+# caracteristicas:
+* On-demand
+* Amplio acceso a la RED.
+* Alquiler multiple y agrupación de recursos.
+* Rapida escalabilidad y elasticidad. En función de la demanda.
+* Servicio medido.
+
+# 6 Ventajas:
+* Cambio el gasto de capital bajo demanda. CAPEX y OPEX
+* Beneficia de economias de escalas masivas.
+* Deja de adivinar la capacidad.
+* Aumentar la velocidad y la agilidad.
+* Deja de gastar en tu centro de datos.
+* Se global en minutos. 
+
+# Problemas resueltos por el cloud. 
+Flexibilidad
+Rentabilidad: Paga por lo que utilizad.
+Escalabilidad
+Elasticidad
+Alta disponibilidad  y tolerancia a los fallos
+Agilidad.
+
+----------------------------------------------------------------------
+Tipos de Cloud Computing. 
+
+Infraestructura como servicio (IaaS): Gestionas la infraestructura. 
+ - Amazon EC2 (AWS)
+ - GCP.
+Plataforma como servicio (PaaS): Solo gestionas la plataforma para tu despliegue.
+ - Elastic Beanstalk (AWS)
+Software como servicio (Saas): Simplemente ejecutas. 
+ - Rekonigtion (AWS)
+
+
+Fundamentos de Precios:
+	* Computación
+	* Almacentamiento
+	* Transferencia de datos fuera del Cloud.
+	
+----------------------------------------------------------------------
+Edge location : Puntos de precencia. +450 Edge location
+
+Servicios de ambito:
+  - Global:
+   1.- Identity and Acces Managment (IAM)
+   2.- Route 53 (Servicio DNS)
+   3.- CloudFront (Red de entrega de contenido)
+   4.- WAF (FireWall de aplicaciones WEB)
+  - Regional: 
+   1.- Amazon EC2 (Infraestructura como servicio)
+   2.- Elastic Beanstalk: (plataforma como servicio)
+   3.- Lambda (funcion como servicio)
+   4.- Rekognition (Software como servicio)
+   
+----------------------------------------------------------------------
+Se selecciona el servicio en funcion de la cercania por ejemplo servicios regionales
+Los servicios se encontraran disponibles segun la region que elegias. 
+
+Modelo de responsabilidad compartida
+https://aws.amazon.com/es/compliance/shared-responsibility-model/
+		-CLIENTE: Responsabilidad por la seguridad dentro del Cloud. (DATOS)
+		-AWS: Responsabilidad por la seguridad del cloud. (SOFTWARE Y HARDWARE)
+
+Politica de uso aceptale de AWS.
+
+----------------------------------------------------------------------
+   1.- Identity and Acces Managment (IAM)
+   * Servicio Global.
+   * Cuenta root.
+   * Grupo de personas segun su rol.
+   * Los grupos solo pertenecen a los usuarios
+   * Los usuarios no necesariament tienen que estar dentro de un grupo 
+   * Pueden estar en varios grupos a la vez
+   
+   PERMISOS: 
+   * Documentos Json Llamados politicas. Estructura una politica. 
+   * estas politicas definen los permisos de los usuarios.
+   * Principio de minimo pribilegio : no dar mas permisos de los que un usuario necesita
+   
+
+PASS: pmK_f3&l -> 1993combinacionJ
+USSER: juan
+ALIAS: juan-aws-iam-juan
+https://juan-aws-iam-juan.signin.aws.amazon.com/console
+
+	Estructura de las politicos en formato Json:
+	Version: Version del lenguaje de la politica
+	Id: Idnteirifcador para la politica (opcional)
+	Statement: Una o mas declaraciones indivniduales. (Obligatorio)
+	
+	JSON Ejemplo de Statement:
+		SiD: 
+		Effect:
+		Principal: cuenta de usuario.
+		Action: Lista de acciones
+		Resource:  Lista de recursos donde se aplica
+		Condition:
+
+	2- IAM - Politicas de contraseñas.
+		*Contraseñas fuertes.
+		*En IAM puedes definir porliticas de contraseña:
+		  - Establcer una longitud minima de contrseña.
+		  - Requiriri tipos de caracteres especificos.
+		    ° Incluyendo letras mayusculas.
+			° Letras minisculas
+			° Numeros.
+			° Caracteres no alfanumericos.
+		  -  Permitir a todos los de IAM cambiar su contraseña. 
+		  - Requeriri a los usuarios IAM que cambien su socntraseña despues de un tiempo. 
+		  - Impedir la reutilización de la contraseña. 
+		  
+	3- MFA : Multi Factor Authentication 
+		Proteccion para usuarios ROOT y usuarios IAM.
+		Dispositivo de seguridad + Contraseña. Autenticación multifactor. + Token de acceso. 
+		* Dispositivo virtual FMA = soporte para multiples tokensen un solo dispositivo.
+		 - Autenticador de Google. (solo un telefono)
+		 - Authy: multidispositivo. <----
+		* Clave de seguridad del segundo factor universal (U2F) Soporte para multiples usuarios Root
+		 -YubiKey.
+		* Dispositivo MFA  de llavero por Hardware (Gemalto)
+		* Dispositivo MFA de llavero por HARDWARE para AWS GovCloud(us) (SurePassID)
+		
+ ----------------------------------------------------------------------
+ 
+ Para acceder a AWS tienes 3 opciones 
+ * Consola de administración de AWS (Pass + FMA) 
+ * CLI Interfaz de linea de comando Claves deacceso  aws-cli
+ * AWS Software Developer Kit (SDK) portegida por claves de acceso 
+	- Las claves de acceso se generan por CLI AWS.
+	- Los usuarios gesionan sus proppias claves de acceso
+	Las claves de acceso son completamente secretas, como una ocntraseña. No las compartas
+ 
+ 
+ AWSCloudShell. Servicio de herramienta para AWS en usuarios Root y IAM 
+ 
+ ----------------------------------------------------------------------
+ 
+ Roles IAM  para los servicios
+ Roles IAM a servicios.  Roles IAM 
+ Los servicios realizaran acciones a mi nombre o rol IAM como la instanacia EC2
+ 
+ Tipo de entidad de confianza: Servicios de AWS.
+ 
+ 
+ Herramientas de seguridad IAM 
+  * IAM Credntial Report / informe de credenciales : enumera todos los usuarios y sus credenciales (Nivel cuenta)
+  * IAM Acces Advisor / Acesor de acceso de IAM (Nivel de usuario) : Muestra el nivel de acceso del usuario.
+   un informe de credeciales para ver acces key y datos en especificio. En el test puse esta pero sale mal debe ser la primera opcion segn el test. 
+  
+  ----------------------------------------------------------------------
+  
+ Directrices usuarios IAM:
+  * Nouses la cuenta root para particar mejor las cuentas IAM 
+  * Un usuario sfisico = un uusario AWS
+  * Asignar usuarios a grupos y asignar permisos a grupos
+  * crear politica de contraseña fuertes
+  * Utilizary reforzar el uso de la autenticacion multifactor (MFA)
+  * Crear y utilizar roles para dar permisos a servicios de AWS
+  * Utilizar claves de acceso para la CLI como para la SDK
+  * revisar los permisos a tus cuentas con : IAM Acces Advisor y IAM Credntial Report 
+  * No compartas usuarios IAM ni claves de acceso. 
+  
+  ----------------------------------------------------------------------
+  
+  Modelo de responsabilidad compartida para IAM 
+  * Aquello que cae en AWS
+	- Infraestructura.
+	- Analisis de config. de vulnerabilidades
+	- Validación de la conformidad
+  * Nuestros:
+	- Gestion y supervicions de usuarios grupos roles y politicas
+	- Habilitacion de MFA: aquellos usuarios que no tengan MFA pueden perder su pass y MFA ayuda.
+	- Rotar las claves es responsabilidad nuestra todas lasclaves
+	- Herramiemtas IAM para permisos adecuados
+	- Analiza patrones de acceso y revisión de permisos.
+----------------------------------------------------------------------
+
+ ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ EC2 8 / AGOSTO / 2024
+ 
+ PRESUPUESTOS:
+ Puedes generar un presupuetos de uso de host en AWS en la parte defacturación con el usuario IAM 
+ Cost Mangamnet -> Budgets -> Presupuesto de gasto 0 -> Correo electronico para notificar el umbral de gasto
+ Presupiuesto de costo mensual. -> 10 Dolares -> Direccion de correo notificaci´n cuando se alcance el 85$ de gasto. 
+ Se pueden crear presupuestos. 
+ 
+ 
+ EC2 - Elastic compute cloud.
+ - Ofertas mas populares en AWS.
+ - Infraestructura como servicio. 
+	* Conciste en Alquilar maquinas virtuales (EC2)
+	* Almacenar datos en unidades virtuales (EBS)
+	* Distribiur cargas en unidades diferentes (ELB)
+	* Escalar los servicios mediante autoscaling (ASG) grupo de autoescalado.
+	
+- Es fundamental para entender fncionamiento del CLoud EC2.
+
+ Opciones de tamaño:
+	* SOFTWARE
+	* CPU
+	* RAM
+	* Espacio de almacenmieno en la red (EBS y EFS)
+	* Espacio de almacenamiento Hardwaree (Ec2 instance store)
+	* Tarjeta de RED
+	* Reglas FireWall
+	* Script de arranque (config primer lanzamiento)
+ Datos de usuario ec2
+	* script de arranque de instanacia de EC2
+	* Automatizar tareas de arranque: Actualizaciones, descargar archivos etc. 
+	* Se ejecuta una sola vez en la primera arranque de instanacia. 
+	* Solo se ejecuta con el usuario ROOT esta instanacia y script. 
+	
+	
+	Practica de crear una instanacia EC2 - Lanazar una instanacia EC2
+	T2 Micro para capa gratituta. 
+	"launch-wizard-1"	
+	Las instanacias EC2 van por regiones. 
+	Detalles
+	Cuando reinicias una instanacia la IP se actualiza. Cada vez que se reinicia
+	Estado y alarmas Monitoreo Seguridad Redes Almacenamiento Etiquetas
+	
+ Tipos de instanacia EC2: 
+	m5.2xlarge
+	m: Clase de instanacia
+	5: Generacion
+	2xLarge: Tamaño dentro de la clase de la instanacia. 
+	
+	1.- Proposito general: General porpuse.
+		Servidores Web o repositorios de codigo. t2.micro.  equilibrio computacion memoria y red. 
+	2.- Coputacion otimizada: Computed optimized.
+		Calculo intensivo alto procesador.
+		Servidores web de alto rendimiento 
+		modelado cientifico 
+		Machin Learning
+	3.- Memoria Optimizada:
+		Grandos conjuntos de datos en memoria : Bases de datos relacionales y no relacionales. 
+		BI Bussines Inteleginece
+	4.- Almacenamiento Optimizado:
+		Acceso alto y sececuancial de escritura y lectura de datos. 
+		Procesamiento de sistemas en linea de alta frecuencia : Sistemas bancarios. Cahce, REDIS
+	Caracteristicas de imagenes EC2
+ https://instances.vantage.sh/?selected=m5n.xlarge
+ 
+ 
+ Grupos de seguridad:
+ La base de seguridad de la red: Controlan el trafico de entrada y salida
+ Reglas de permisos: direccion IP y grupo de seguridad.
+ 
+	Actuan como un firewall los grupos de seguridad Regulan:
+	* El acceso a los puertos.
+	* Rangos de IP autorizados IPV4 e IPV6
+	* Control de RED de entrada (De afuera hacia el interior)
+	* Control de red de salida. (De dentro hacia fuera)
+ 
+	NOTAS: 
+	Un grupo de seguridad puede adjuntarse a multiples instancias
+	bloqueado a una comunicación por region  VPC.
+	Vive fuera del EC2 i el trafico esta bloqueado no se vera la instancia EC2
+	es bueno tener un grupo de seguridad separado para el acceso SSH 
+	Si tu aplicacion no es accesible entonces es un tema se grupo de seguridad.
+	SI tu aplicacion da un error  de conexion rechazada es un error de la aplicacion 
+	todo el trafico de entrada esta bloqueado por defecto.
+	Todo el trafico de salidas esta autorizado por defecto
+	
+	Un grupo de seguridad puede gestionar otros grupos de seguridad autorizar. 
+	Si estan autorizados pueden acceder siempre y cuando esten dentro del grupo padre 
+	Filtran el trafico de entrada por grupo de seguridad. 
+	
+	Puertos clasicos que hay que concer: 
+	22 SSH Secure Shell
+	21 FTP Fil transfer protocol 
+	22 SFTP Secure file transfer protocol
+	80 http : no seguro
+	443 https: seguros
+	3389: Iniciar sesión en instancias de widnows
+	
+	SSH: EC2 instance connect Universal,
+	Protocolo interno de nuestra maquina para conectar  al a instancia. 
+	
+	Comandos de eonexion por SSH desde remoto hacia una instancia EC2 . .t2Micreo Capa Gratiuta
+	 ssh -i C:\Users\DAVID\Desktop\MATERIALDEAWS\DemoKeys.pem ec2-user@54.205.162.222
+	 ssh -i C:\Users\DAVID\Desktop\MATERIALDEAWS\DemoKeys.pem ec2-user@34.239.181.10
+	 ssh -i C:\Users\DAVID\Desktop\MATERIALDEWS\DEMOKEYS2.pem ec2-user@34.239.181.10
+	 
+	 
+	 
+	 Opciones de compra de instancias de EC2
+	 - Instancia bajo de manda. 
+	 - Reservadas (1 a 3 años)
+		* Reservadas: Carga de trabajos largas
+		* Reservadas convertibles: Cargas de trabajo largas onc intancias flexibles. 
+	- Planes de ahorro de 1 a 3 años: uso de trabjo largos
+	- Instancias spot: Algo rapido, cargas de trabajos cortas
+	- Hosts dedicados: reservar server fisico completo
+	- Instancias dediecadas: Solo un cliente sin compartir instancias
+	- reservas de capacidad: 
+	
+	
+	1.- On demand
+	 * Facturación por segundo.
+	 * Todos los demas facuran por hora.
+	 * Costes elevado 
+	 * sin compromiso a largo plazo 
+	 * Cargos de trabajo a costo plazo
+	 
+	2.- Reservadas
+	 * 72 % de descuento en comparacion con las de on-demand
+     * Periodo de 1 a 3 años maximo descuento a 3 años
+     * Sin pago inicial
+	 * Pago inicial parcial decuento mayor
+	 * Pagar todo de golpe maximo descuento
+	 * Region o zona. 
+	 * Aplicaciones de uso constante / Comprar y vender
+	 * convertibles puedes cambiar tipo de instancias Ec2 66% de decuento Jugar con SO, familia etc. 
+	 
+	3.- Planes de ahorro EC2
+	 * 72% de descuento
+	 * Se factura bajo demanda
+	 * felxibilidad al tamaño de instancias y sistemas operativos
+	 * Region especifica us-1 
+	 
+	4.- Instancias EC2 SPOT.
+	 * Instncias con 90% de descuento
+	 * Puedes perder estas instancias segun su demanda se le dara a otra persona cuando valga mas 
+	 * No es adecuado para trabajos criticos o bd por perdida de datos
+	
+	5.- HOST dedicados EC2:
+	 * bajo demanda
+	 * de 1 a 3 años
+	 * Mas caras 
+	 * util bajo software con modelos de licencia.
+	 
+	6.- Instancias dedicadas EC2
+	 * No son compartidas.	 
+	   
+	7.- Reservas de capacidad:
+	 * Sin decuento de facturacion
+	 * Es tarifa bajo demanda
+	 * tanto si se ejecutan instancia como no 
+	 * Tiempo de disponibilidad alto.
+	 
+	 
+	Modelo de responsabilidad compartida:
+	AWS:
+		Infraestructura,
+		Aislamientos de host fisicos
+		Sustitucion de hardware defectuoso
+		Validacion  de la normativa
+	Nosotros: 
+        Reglas de los grupos de seguridad 
+		Parches de actualizacion del SO 
+		Software y utilidades instaladas en la unidad SO 
+		Roles IAM asignados en EC2 y gestion de acceso de usuarios IAM 
+		Seguridad de los datos en tu instancia
+	 
+ ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ 13/AGOSTO/2024 - EC2 - EBS
+ 
+ NOTA:
+ VOLUMEN EBS (Elastic block store).
+ Unidad de RED.
+ 
+
+ Permite persistir los datos. 
+ Solo se puede andjunatr con una instancia. a nivel CCP.
+ USB DE RED. Como analogia. 
+ 30 GB gratiuto SSD y Magnetico. 
+ 
+ No es una unidad fisicia si no como de  red.
+ Usa la red para comunicar una instancia. 
+ Se puede comunicar con diferentes instancias EC2 una a la vez segun la necesidad
+ Zonas de disponilidad no puedes adjuntarse a una zona diferente. Se puede trasladar un volumen realizando un Snapshot.
+ 
+ Capacidad provicionada e intrucciones por segundo.  Se fectura por el total. Se puede aumentar la capacidad de la unidad 
+ indicando muy sencillo. solo solicitando. 
+ 
+ Una instancia Ec2 puede conectarse a varias instancias.
+ Borrar al terminar en las instancias EBS. 
+ Se elimina el volumen EBS Raiz habiliado cuando la instancia termine. El volumen Raiz se borrara con la instancia. 
+ Volumnes nuevos no se borran en automatico. 
+ Esto se puede modificar para no perder la información en ningun momento. EC2 -> EBS relacion al eliminar instancias. 
+ 
+ 
+ Acerca de EBS Multi-Attach
+Aunque en la clase anterior digo que los volúmenes EBS no pueden adjuntarse a varias instancias, sé que no es cierto para los tipos de volumen io1 e io2: esto se llama la función EBS Multi-Attach.
+
+PRactica : 
+Identifica la zona de seguridad de tu instancia:
+	* Zona de disponibilidad
+	* us-east-1b
+	
+En esta practica cuando eliminas la instancia EC2 -> el volumen EBS por defecto desaparece debido a que esta configurado para su eliminacion 	
+al crear la instancias puedes cinfigurar el borrado. 
+
+	Snapshot / Instantaneas de EBS.
+	Se puede pasar entre regiones por zona de disponibilidad por medio de Snapshots. Que es una copia del volumen EBS creado en una zona.
+	* Archivo Snapshots EBS. 
+		- Mover un archivo Snapshot es un 75% mas barato
+		- Restauracion del archivo tarda entre 24 a 72 horas.
+	* Papelera de reciclaje para Snapshots EBS
+		-Retencion de 1 dia a un año
+		
+	AMI - Amazon Mahcine Image.	
+	* Personalizacion de un EC2. Tu añades softeare, SO, monitorizacion ETC. 
+	* Tiempo de configuracion mas rapido.
+	* Todo el software esta pre empaquetado. 
+	 -AMI publica
+	 -AMI propia
+	 -AMI comprada.
+	 
+	EC2 Image Buiilder
+	Usado para la creacion de maquinas virtuales  o imagenes  de contenedores 
+	* Crea instancias de un constructor. Construccion componenes personalizados. Crear nueva AMI 
+	
+	Creacion de pipeline con el Image Builder. 
+	
+	:::::: 09/09/2024 ::::: RETOMAR CURSO.
+	
+	Lanazar AMIS Con el EC2 Image Builder - Podremos lanzar nuevas AMIS. con un SET de pruebas mas completo.
+	
+	 1.- Programación de compilación: 
+			Podemos programarlo de forma automatica para se ejecucion.
+	 2.- Elegir receta:
+			Una receta de imagen es un documento que define los componentes que se van a aplicar a las imágenes base para crear la configuración deseada para la imagen de salida. Luego de crear la receta, no es posible modificarla. Se debe crear una nueva versión para cambiar los componentes.
+	3.- Definir el proceso de creación de imágenes
+			Una receta de imagen es un documento que define los componentes que se van a aplicar a las imágenes base para crear la configuración deseada para la imagen de salida. Luego de crear la receta, no es posible modificarla. Se debe crear una nueva versión para cambiar los componentes.
+	4.- Definir la configuración de la distribución - opcional
+			La configuración de distribución incluye la configuración de región específica para el cifrado, los permisos de ejecución, las cuentas que pueden ejecutar la AMI de salida, el nombre de la AMI de salida y las configuraciones de licencia.
+			
+		Practicamente lanzamos una instancian utilizando EC2 Image Bulder el cual construimos con caracteristicas especificas segun la nececidad de nuestro sistema. 
+		Cuando vamos a lanzar una instancia en vez de configurarla desde cero podemos usar las AMIS creades en el lanzamiento. Y ejecutar una instancia con exito.
+		Es un pipeline de creación de instancias el cual puede programarce con especificaciones de ejecución en tiempo y forma. 
+	
+	
+	ALMACEN DE INSTANCIAS EC2:
+		Los volumenes EBS Son unidades de red con un rendimiento bueno pero limitado, Si necesitas un disco de Hardaware de alto rendimiento, utilizar EC2 Instance Estore.
+		Las instancias EC2 no es muy segura ya que vive dentro de la instancia en su lapso de vida. 
+		Examen: Alto rendimiento  y performance: Almacen de datos/instancias EC2 : Instances Store EC2.
+		
+	EFS – Elastic File System
+		• NFS (network file system / sistema de archivos de red) gestionado que puede montarse en 100 EC2s
+		• EFS funciona con instancias EC2 de Linux en multi-AZ
+		• Alta disponibilidad, escalable, caro (3x gp2), pago por uso, sin planificación de capacidad
+			
+			
+			EBS VS EFS Diferencias:
+			No se nececita crear Snapshoots para compartir o respalldar la información como en la EBS donde cada capa EBS existentente es imposible compartir sin un Snapshot
+			por otro lado el EFS es completamente compartido fuera de cada instancia EFS se puede compartir a otras regiones. Zonas de disponibilidad.
+			Tiene politica de siclo de vida. Que determina cuando los archivos no se usan por un tiempo determinado. 
+			
+			3 tipos de almacenamientos de datos EC2
+				EBS: - NECESITA SNAPSHOTS. PARA COMPARTER EN DIF. ZDD. 
+				EC2 INSTANCE STORE: - ALTO RENDIMIENTO ::: Es efimero todo se puede perder si falla algo.
+				EFS: - COMPARTIR SIN CREAR SNAPSHOPT EN DIF. ZONAS DE DISPONIBILIDAD
+				
+			RESPONSABILIDAD COMPARTIDA: 
+				• Infraestructura
+				• Replicación de datos para volúmenes EBS y unidades EFS
+				• Sustitución de hardware defectuoso
+				• Asegurar que sus empleados no puedan acceder a tus datos
+			NUESTRA:
+				• Configuración de procedimientos de copia de seguridad / instantánea
+				• Configuración de la encriptación de datos
+				• Responsabilidad de los datos en las unidades
+				• Comprender el riesgo de utilizar EC2 Instance Store
+	
+			RESUMEN:
+			Resumen - Almacenamiento de instancias EC2
+			• Volúmenes EBS: 
+					* Unidades de red adjuntas a una instancia EC2 a la vez 
+					* Asignados a una zona de disponibilidad
+					* Puede utilizar EBS Snapshots para copias de seguridad / transferir volúmenes EBS a través de AZ
+			• AMI: crea instancias EC2 listas para usar con nuestras personalizaciones
+			• EC2 Image Builder: construye, prueba y distribuye automáticamente AMIs
+			• EC2 Instance Store:
+					* Disco de hardware de alto rendimiento unido a nuestra instancia EC2
+					* Se pierde si nuestra instancia se detiene / termina
+			• EFS: sistema de archivos en red, se puede adjuntar a 100s de instancias en una región
+			• EFS-IA: clase de almacenamiento de coste optimizado para archivos de acceso poco frecuente
+			• FSx para Windows: sistema de archivos en red para servidores Windows
+			• FSx para Lustre: sistema de archivos Linux de alto rendimiento informático
+		
+			

@@ -1,0 +1,69 @@
+KUBERNETES:
+
+Orquestador de conetenedores. 
+
+Control Plane: Servidores de Kubernetes a nivel orquestador
+
+Nodos o instancias: Cada uno corre el agente Kublete y el KubeProxy. 
+
+Api Kubernetes, Manager, ETC.
+ETCD Base de datos Key VAlue
+
+Puede conectarse a provedores de API en la Nube. Pedir Discuo virtual y conectarlao a a na instanacia. 
+Escalamiento automatico. 
+
+
+Instalar Kubctl.
+MiniKub. No es para crear discos virtuales
+
+Digital Ocean. Para obervar Kubernetes en la nube.
+Kubectl los instalao en mi pc en esta caso no usare digital Ocean pero si MiniKube me dejara hacer practias con 
+la creacion de kubernetes.
+
+Namespace dividcion logica para separar cargas. dividir trafico
+kubctl get ns: Muestraslos namesspace 
+Un pod es un set de contenedores. un solo contenedor en cada pod. es lo ideal pero puedes tener mas de un contenedor.
+kubctl -n Kube-system get pods: Obetenr los pods corriendo actualmente
+kubctl -n Kube-system get pods -o wide: Te muestra la Ip y el nodo.
+kubctl -n Kube-system delete pod do-node-agent-cq8hk: Kubernetes en automatico levantara el pod por su configuración. 
+
+Los pods son set de contenedores que comparten el namespace de red estan debajo de la misma ip
+entramos a tra vez de al api de kubernetes
+
+Manifiesto de un pod.
+apiVersion: v1
+kind: Pod
+metadata:
+	name: ngnig
+spec: 
+	containers: 
+	- name: ngnix
+	- ngnx: alpine
+	
+Kubectl apply -f 01-pod.yaml
+kubectl get pods
+kubectl exec -it ngnx --sh
+
+deployment.yml
+services.yml
+
+
+containers: 
+ -name:
+ -image:
+ -env:
+ 
+ Resource
+  - puedes especificar por contenedor la cntidad de CPU y de RAM 
+ 
+  - Readines probes 
+  - Livenes probes
+ 
+ 
+ Un deployment es un tamplate para crear pods. 
+ En vez de configurar el Yml para levantar pods creas un template y especificar las replicas : cantidad de pods.
+ 
+Formas de deployar un pod 
+Deployment.yml
+Daemondset.yml : Se desplega en todos los nodos un solo pod en cada nodo - No tiene replicas.
+statefulset

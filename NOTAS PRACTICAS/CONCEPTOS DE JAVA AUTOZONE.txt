@@ -1,0 +1,178 @@
+::::1.- ¿Por qué se denomina a Java “el lenguaje de programación independiente de la plataforma”?  
+		Java es un lenguaje multiplaforma por JVM. Maquina Virtual de Java.
+		Java compila en un formato intermediario Bytecode. Este es un conjunto de 
+		instrucciones que no esta vinculado al sistema operativo. El Bytecode es 
+		ejecutado e interpretado por la JVM. Cada SO tiene su propia version de JVM 
+		pero toda JVM puede interpretar ese codigo. Esto te brinda portabilidad. 
+
+::::2.- ¿Explica la palabra clave Final en Java?   
+		La palabra final se usa para la restriccion de: 
+		Variables : El valor establecido no se puede cambiar. : Constantes.
+		Clases: no se puede heredar de la clase final. : 
+		Metodos: No se puede anular un metodo final. Cuando heredas el metodo de una clase con la palabra reserada Extense puede sobreescribir los metodos
+		cuando son finales no pueden cambiar deben ejecutarse tal cual fueron definidos. Evita que un metodo sea sobrescrito en una subclase.
+		Conclución las restricciónes permiten la ineraltividad de comopnentes en Java garantizando su definicion original. 
+
+::::3.- ¿Cuándo se utiliza la palabra clave super?   
+		Esta palabra se utuliza para referirse a la clase base o superclase padre desde una subclase o clase hija. 
+		Puedes usar varios contextos especificos como: 
+
+		1.- Llamar constructores de la superclase.
+		Esto es util para inicializar atributos herededoas de la superclase por medio del constructor. 
+		Si no llamas el constructor especifico llava inovocara el contructor sin argumentos por default. 
+		2.- Puedes invocar metodos con super.metodo() de la clase padre 
+		3.- Puedes acceder a caompos de la superclase.  super.variable
+
+		Puedes invocar y acceder a: constructures, campos, metodos de la superclase.
+		Permite extender el comportamiento heredado. 
+
+		uso mas comun inicializar atributos o comapos de la superclase:
+		public class Parent {
+			public Parent() {
+				System.out.println("Constructor de Parent");
+			}
+		}
+
+		public class Child extends Parent {
+			public Child() {
+				super(); // Llama al constructor de Parent
+				System.out.println("Constructor de Child");
+			}
+		}
+		
+::::4.- ¿Cuál es la diferencia entre StringBuffer y String?     
+		Una de las diferencias entre String y StringBuffer es las inmutabilidad
+		1. String es inmutable: Por lo que cada vez que realizas acciones con el String
+		como Concatenar .concat(). Esto genera una nueva instancia de memoria. 
+		(Menos eficiente en modificaciones frecuentes)
+		
+		3.- stringBuffer. Si es mutable por lo que perseva la misma instancia y permiten
+		realizar acciones a cadenas usando las mismas instancias la operacion se realiza en el 
+		mismo objeto. 
+		(Mas eficente en modificaciones frecuentes)
+		
+		Las facturas como ejemplo. 
+
+::::5.- ¿Por qué no se admite la herencia múltiple en Java?   
+		Para tener en Java un lenguaje Orientado a objetos simple. Para el uso de mas necesidades entre clases
+		puedes usar interfaces. Evitar conflictos de complejidad. alternativa el uso de intefaces.
+		
+				La herencia multplie puede introducir ambiguedad en el sistema: 
+		class A {
+			void method() {
+				System.out.println("Method in A");
+			}
+		}
+		class B {
+			void method() {
+				System.out.println("Method in B");
+			}
+		}
+		class C extends A, B {
+			// ¿Qué método `method()` debería usarse aquí?
+		}
+
+		Un problema común asociado con la herencia múltiple es el problema del diamante. Este ocurre cuando una clase hereda de dos clases que tienen una clase base común.
+		ava no permite la herencia múltiple de clases principalmente debido a problemas de ambigüedad, complejidad y problemas relacionados con la resolución de métodos. En su lugar, Java ofrece el uso de interfaces para proporcionar una forma de compartir comportamientos entre clases de manera más segura y manejable.
+
+::::6.- ¿Puede una clase de nivel superior ser privada o protegida?   
+		public, protected, o private
+		No puedes hacer clases privadas o protegidas por que no tendran visibilidad. No podras aplicar conceptos como herencia. 
+		
+		Las clase sinternas si permiten usar estos modificadoes de acceso. 
+		public class OuterClass {
+		private class PrivateInnerClass {
+				// Implementation
+			}
+		}
+		
+::::7.- Modificadores de acceso:
+		1.- public
+		Visibilidad: Los miembros (clases, métodos, o atributos) declarados como public son accesibles desde cualquier otra clase en cualquier paquete.
+		2.- protected
+		Visibilidad: Los miembros declarados como protected son accesibles dentro de su propio paquete y también por las subclases, incluso si están en paquetes diferentes.
+		3. default (o sin modificador de acceso)
+		Visibilidad: Si no se especifica ningún modificador de acceso, se aplica el modificador de acceso por defecto (también conocido como "package-private"). Los miembros son accesibles solo dentro de su propio paquete.
+		4. private
+		Visibilidad: Los miembros declarados como private son accesibles solo dentro de la clase en la que están definidos. No son accesibles desde otras clases, incluso si están en el mismo paquete o son subclases.		
+			    Resumen de Modificadores de Acceso
+				public: Accesible desde cualquier parte.
+				protected: Accesible dentro del paquete y por subclases en otros paquetes.
+				default (o sin modificador): Accesible solo dentro del mismo paquete.
+				private: Accesible solo dentro de la misma clase.
+
+::::8.- ¿Cuál es la diferencia entre 'throw' y 'throws' en el manejo de excepciones de Java?
+		Son conceptos relacionados con el manejo de excpeciones: 
+		
+			Resumen de Diferencias
+			
+			throw:
+			Se utiliza para lanzar una excepción dentro del cuerpo de un método o bloque de código.
+			Ejemplo: throw new IllegalArgumentException("Error message");
+			
+			throws:
+			Se utiliza en la declaración de un método para indicar que el método puede lanzar una o más excepciones.
+			Ejemplo: public void readFile(String filePath) throws IOException
+
+::::9.- ¿Qué es el método finalize()?  
+
+		finalize(): Método que permite limpiar recursos antes de que un objeto sea recolectado por el garbage collector, pero su uso es desaconsejado.
+		Problemas: No es predecible, puede afectar el rendimiento y puede llevar a problemas con recursos no liberados oportunamente.	
+		Alternativas: Utiliza try-with-resources y la interfaz AutoCloseable para manejar recursos de manera más segura y efectiva. y rmplazar close en vez de finalize()
+		
+		Es solo para objetos o instancias que se manejan fuera de gestion del Garbage Collector
+		Para objetos que necesitan liberar recursos explícitamente, como archivos o conexiones,
+		
+		public static void main(String[] args) {
+				try (Resource res = new Resource("ExampleResource")) {
+					// Usar el recurso
+				} // El recurso se cierra automáticamente aquí
+		}
+
+::::10.- ¿Diferencia entre la interfaz Conjunto y Lista?   
+		List: Mantiene el orden, permite duplicados, y permite acceso por índice. Implementaciones comunes son ArrayList, LinkedList, y Vector.
+		Set: No mantiene el orden (excepto LinkedHashSet), no permite duplicados. Implementaciones comunes son HashSet, LinkedHashSet, y TreeSet.
+
+		List:
+		Útil cuando se necesita mantener un orden específico de los elementos.
+		Ideal para colecciones donde los elementos pueden repetirse y se requiere acceso por índice.
+		Set:
+
+		Útil cuando se necesita una colección de elementos únicos.
+		Ideal para colecciones donde no importa el orden o se requiere una búsqueda rápida para verificar la existencia de elementos.
+		
+		List<String> list = new ArrayList<>();
+		list.add("apple");
+		list.add("banana");
+		list.add("apple");  // Se permite duplicado
+		
+		Set<String> set = new HashSet<>();
+		set.add("apple");
+		set.add("banana");
+		set.add("apple");  // No se permite duplicado
+		
+:::::11.- ¿Qué sucederá si coloca System.exit(0) en el bloque try o catch? ¿Se ejecutará el bloque finally?   
+
+		Resumen
+		Cuando se llama a System.exit(0), el proceso de la JVM se detiene inmediatamente.
+		El bloque finally no se ejecutará si System.exit(0) es invocado en el bloque try o catch.
+		Esto hace que System.exit() sea una herramienta poderosa pero potencialmente disruptiva, y debe usarse con precaución, especialmente en aplicaciones donde la correcta liberación de recursos y la ejecución de código de limpieza es crucial.
+		
+:::::12.- diferencias entre JDK, JVM, JRE
+		
+		En resumen, el JDK es el conjunto completo que incluye herramientas para desarrollar y ejecutar aplicaciones Java, el JRE es el entorno necesario solo para ejecutar aplicaciones Java, y la JVM es la máquina virtual que ejecuta el bytecode Java.
+		
+:::::13.- Diferencia entre clases abstracta e interfaz.
+
+		Interfaz: Define un contrato que las clases deben cumplir. Permite múltiples implementaciones y puede tener métodos abstractos, predeterminados, estáticos y privados (desde Java 9). Los campos son constantes (static final).
+		Interfaz: Define un contrato que las clases deben cumplir. Permite múltiples implementaciones y puede tener métodos abstractos, predeterminados, estáticos y privados (desde Java 9). Los campos son constantes (static final).
+		
+		Clase Abstracta: Permite la implementación parcial de una clase y puede contener métodos abstractos y concretos. Los campos pueden ser de cualquier tipo de acceso y la herencia es simple.
+		
+::::::14.- 
+Resumen
+HashMap: Es una implementación de la interfaz Map que almacena pares clave-valor, no garantiza el orden, permite claves null y múltiples valores null, y ofrece un acceso rápido a los elementos.
+List: Es una interfaz para colecciones ordenadas que permiten elementos duplicados y acceso basado en índices.
+La elección entre HashMap y List depende de la necesidad específica: si necesitas almacenar y acceder a pares clave-valor, usa HashMap; si necesitas una colección ordenada de elementos accesibles por índice, usa una implementación de List.rrr
+
+

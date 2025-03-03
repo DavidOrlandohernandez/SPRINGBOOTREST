@@ -1,0 +1,10 @@
+PRACTICA: 
+https://www.youtube.com/watch?v=6RQTsx_6wXo&t=0s
+
+Titulo: Dominando las Relaciones en JPA con Spring Boot: Simplificando tus conexiones a bases de datos
+
+En las entidades de SpringBoot se usa los Cascade:  cascade = CascadeType.PERSIST -> Investigar como funciona cada uno. 
+Es segun el comportamiento del movimiento de la tabla. 
+
+@OneToMany(targetEntity = Player.class, fetch = FetchType.LAZY, cascade = CascadeType.PERSIST) -> Carga peresosa, Obtendra el listado completo. 
+private List<Player> players;

@@ -1,0 +1,137 @@
+Aquí tienes una lista de algunos de los comandos más comunes y útiles en Linux, junto con una breve descripción de cada uno:
+
+Comandos de Navegación del Sistema de Archivos
+ls: Lista los archivos y directorios en el directorio actual.
+
+ls -l: Muestra los archivos y directorios con detalles como permisos, propietario y tamaño.
+ls -a: Muestra todos los archivos, incluidos los ocultos (aquellos que empiezan con un punto .).
+cd: Cambia el directorio actual.
+
+cd /path/directory: Cambia al directorio especificado.
+cd ..: Sube un nivel en la jerarquía de directorios.
+cd ~: Cambia al directorio home del usuario.
+pwd: Muestra la ruta completa del directorio actual.
+
+Comandos de Gestión de Archivos y Directorios
+cp: Copia archivos o directorios.
+
+cp file1 file2: Copia el archivo file1 a file2.
+cp -r dir1 dir2: Copia el directorio dir1 a dir2 (recursivamente).
+mv: Mueve o renombra archivos o directorios.
+
+mv old_name new_name: Renombra old_name a new_name.
+mv file /path/directory/: Mueve el archivo al directorio especificado.
+rm: Elimina archivos o directorios.
+
+rm file: Elimina el archivo.
+rm -r directory: Elimina el directorio y su contenido (recursivamente).
+mkdir: Crea un nuevo directorio.
+
+mkdir new_directory: Crea un directorio llamado new_directory.
+rmdir: Elimina un directorio vacío.
+
+rmdir directory: Elimina el directorio si está vacío.
+Comandos de Visualización y Manipulación de Archivos
+cat: Muestra el contenido de un archivo.
+
+cat file: Muestra el contenido de file.
+more y less: Muestra el contenido de un archivo, página por página.
+
+less file: Muestra el contenido de file con posibilidad de desplazamiento.
+head: Muestra las primeras líneas de un archivo.
+
+head -n 10 file: Muestra las primeras 10 líneas de file.
+tail: Muestra las últimas líneas de un archivo.
+
+tail -n 10 file: Muestra las últimas 10 líneas de file.
+tail -f file: Muestra las últimas líneas de file y sigue mostrando a medida que el archivo crece.
+touch: Crea un archivo vacío o actualiza la marca de tiempo de un archivo.
+
+touch newfile: Crea un archivo vacío llamado newfile o actualiza su timestamp si ya existe.
+Comandos de Gestión de Procesos
+ps: Muestra información sobre los procesos en ejecución.
+
+ps aux: Muestra todos los procesos con detalles completos.
+top: Muestra una vista en tiempo real de los procesos en ejecución y su consumo de recursos.
+
+kill: Finaliza un proceso.
+
+kill PID: Envía la señal de terminación al proceso con ID PID.
+kill -9 PID: Fuerza la terminación del proceso con ID PID.
+htop: Similar a top, pero con una interfaz más amigable e interactiva. Necesita ser instalado.
+
+Comandos de Gestión de Permisos
+chmod: Cambia los permisos de un archivo o directorio.
+
+chmod 755 file: Establece los permisos a rwxr-xr-x para file.
+chown: Cambia el propietario de un archivo o directorio.
+
+chown user:group file: Cambia el propietario y grupo de file.
+Comandos de Compresión y Archivado
+tar: Crea y manipula archivos tar.
+
+tar -cvf archive.tar directory/: Crea un archivo tar de directory/.
+tar -xvf archive.tar: Extrae el contenido del archivo tar.
+gzip: Comprime archivos.
+
+gzip file: Comprime file y le añade la extensión .gz.
+gunzip: Descomprime archivos gzip.
+
+gunzip file.gz: Descomprime file.gz.
+Comandos de Red
+ping: Comprueba la conectividad con otro host.
+
+ping google.com: Envía paquetes ICMP a google.com para verificar la conectividad.
+ifconfig o ip: Muestra o configura interfaces de red.
+
+ifconfig: Muestra las interfaces de red y su configuración.
+ip a: Muestra información sobre las interfaces de red.
+netstat: Muestra estadísticas de red y conexiones.
+
+netstat -tuln: Muestra las conexiones de red activas y puertos en escucha.
+scp: Copia archivos entre hosts de manera segura.
+
+scp file user@remote:/path/: Copia file al directorio /path/ en el host remoto remote.
+ssh: Inicia una sesión segura en un host remoto.
+
+ssh user@remote: Se conecta al host remote como user.
+Comandos de Búsqueda
+find: Busca archivos y directorios en el sistema de archivos.
+
+find /path/ -name "filename": Busca un archivo llamado filename en /path/.
+grep: Busca patrones de texto dentro de archivos.
+
+grep "pattern" file: Busca pattern dentro de file.
+grep -r "pattern" /path/: Busca recursivamente pattern en /path/.
+locate: Encuentra rápidamente archivos y directorios por nombre.
+
+locate filename: Busca filename en la base de datos del sistema (requiere actualizar la base de datos con updatedb).
+Otros Comandos Útiles
+df: Muestra el uso del espacio en disco.
+
+df -h: Muestra el uso del espacio en disco en un formato legible (con tamaños en KB, MB, GB).
+du: Muestra el uso del espacio en disco por archivo y directorio.
+
+du -h: Muestra el tamaño de los archivos y directorios en un formato legible.
+history: Muestra el historial de comandos usados.
+
+history: Muestra todos los comandos ejecutados en la sesión actual.
+alias: Crea un alias para un comando.
+
+alias ll='ls -l': Crea un alias ll para ls -l.
+sudo: Ejecuta un comando como superusuario o con permisos de otro usuario.
+
+sudo command: Ejecuta command con privilegios de superusuario.
+Estos comandos son fundamentales para cualquier usuario de Linux y te permitirán realizar una amplia gama de tareas en el sistema.
+
+
+
+
+
+
+
+
+
+
+
+ChatGPT pue

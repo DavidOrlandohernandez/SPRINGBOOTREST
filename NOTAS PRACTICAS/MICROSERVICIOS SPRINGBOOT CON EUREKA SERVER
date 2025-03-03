@@ -1,0 +1,70 @@
+Crear un proyecto de MAVEN - Maven in five minutes.
+mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+
+INSTALACIÓN DE MAVEN 
+https://www.youtube.com/watch?v=rl5-yyrmp-0
+
+
+PROYECTO MODULAR: Proyecto padre que dentro del mismo tendriamos mas proyectos, como microservicios o modulos.
+
+Descargar el JDK.
+
+Practica de micro servicios
+https://www.youtube.com/watch?v=t0D4OPcugyI
+
+
+3 CLIENTES PARA LLAMADOS DE SERVICIOS
+HttpClient : Libreria Externa
+RestTemplate : cliente que tiene SpringBoot para HTTP
+FeingCliente :  Cliente interno de SpringBoot Http Cliente mas compatible con los microservices
+
+
+CONFIGURACION DE POSTGRESQL
+https://www.youtube.com/watch?v=cHGaDfzJyY4
+
+SOLUCION PARA EL REDIRECCIONAMIENTO.
+Al momento de hacer la configuración del gateway revisen que sea :<artifactId><artifactId>spring-cloud-starter-gateway</artifactId></artifactId>
+porque hay otra parecida <artifactId>spring-cloud-starter-gateway-mvc</artifactId> la cual yo coloqué mal y no se me redireccionaba.
+
+Esta configuración en Spring Cloud Gateway habilita la capacidad de descubrimiento de servicios. Aquí te explico qué significa cada parte y para qué sirve:
+
+spring.cloud.gateway.discovery.locator.enabled: true: Esta propiedad habilita el descubrimiento automático de servicios registrados en un servidor de descubrimiento (como Eureka, Consul, Zookeeper, etc.). Cuando esta configuración está activada, Spring Cloud Gateway puede buscar dinámicamente servicios disponibles en el entorno de ejecución y configurar rutas hacia ellos automáticamente.
+Funcionamiento:
+Descubrimiento de Servicios:
+
+Spring Cloud Gateway utilizará el servidor de descubrimiento especificado (por ejemplo, Eureka si estás utilizando Spring Cloud Netflix) para consultar qué servicios están registrados y disponibles en el entorno.
+Configuración Automática de Rutas:
+
+Una vez que los servicios están registrados en el servidor de descubrimiento, el Gateway puede crear rutas dinámicas basadas en los servicios encontrados. Esto significa que no es necesario configurar manualmente cada ruta hacia cada servicio; el Gateway puede descubrir automáticamente qué servicios existen y configurar las rutas en consecuencia.
+Uso de Predicados:
+
+A menudo, se combinan predicados (como Path, Host, Method, etc.) con el descubrimiento de servicios para establecer condiciones específicas bajo las cuales las solicitudes deben ser enrutadas a servicios específicos.
+Ventajas:
+Flexibilidad y Escalabilidad: Facilita la configuración dinámica y escalable del Gateway, ya que no es necesario actualizar manualmente las configuraciones cada vez que se agregue o cambie un servicio.
+
+Reducción de Configuraciones Manuales: Minimiza la necesidad de mantenimiento manual, ya que las rutas se configuran automáticamente según el estado actual de los servicios registrados en el servidor de descubrimiento.
+
+Consideraciones:
+Servidor de Descubrimiento: Asegúrate de que el servidor de descubrimiento esté correctamente configurado y en funcionamiento para que el Gateway pueda descubrir y enrutar hacia los servicios adecuadamente.
+
+Predicados y Filtros: Puedes utilizar predicados y filtros adicionales para personalizar y controlar cómo se enrutan las solicitudes basadas en ciertos criterios específicos además del descubrimiento de servicios.
+
+En resumen, habilitar spring.cloud.gateway.discovery.locator.enabled: true en tu configuración de Spring Cloud Gateway permite aprovechar la funcionalidad de descubrimiento de servicios, simplificando la gestión de rutas y mejorando la flexibilidad de tu arquitectura de microservicios.
+
+
+--TAREA
+Pendiente exponer en eureka otro servicio para ver si puede pasar por el getaway de forma automatica. 
+
+
+
+En resumen, una buena práctica de diseño de software busca alta cohesión dentro de los módulos (para mantener las responsabilidades claras y relacionadas) y bajo acoplamiento entre módulos (para reducir las dependencias y facilitar cambios y mantenimiento).
+
+-------------------------------------------
+
+
+
+
+
+
+
+

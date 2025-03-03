@@ -1,0 +1,49 @@
+1. Configuración Inicial
+	git config --global user.name "Tu Nombre": Configura tu nombre de usuario para todas las operaciones de Git en tu máquina.
+	git config --global user.email "tu.email@ejemplo.com": Configura tu correo electrónico.
+	git config --global core.editor "code --wait": Configura el editor de texto predeterminado (en este caso, Visual Studio Code).
+2. Crear y Clonar Repositorios
+	git init: Inicializa un nuevo repositorio Git en el directorio actual.
+	git clone <url>: Clona un repositorio existente desde una URL a tu máquina local.
+3. Gestión de Archivos
+	git add <archivo>: Añade un archivo específico al área de preparación (staging area).
+	git add .: Añade todos los archivos modificados en el directorio actual al área de preparación.
+	git commit -m "Mensaje del commit": Crea un nuevo commit con los cambios en el área de preparación y añade un mensaje descriptivo.
+	git rm <archivo>: Elimina un archivo del repositorio y lo prepara para el commit.
+	git mv <archivo> <nuevo_nombre>: Mueve o renombra un archivo.
+4. Visualización del Historial
+	git log: Muestra el historial de commits en la línea de tiempo del proyecto.
+	git log --oneline: Muestra el historial de commits en una línea por commit, útil para una visión rápida.
+	git log --graph --oneline --all: Muestra un historial gráfico de todos los commits en todas las ramas.
+5. Ramas (Branches)
+	git branch: Muestra una lista de ramas locales. La rama actual se indica con un asterisco.
+	git branch <nombre_rama>: Crea una nueva rama llamada nombre_rama.
+	git checkout <nombre_rama>: Cambia a la rama especificada.
+	git checkout -b <nombre_rama>: Crea y cambia a una nueva rama en un solo comando.
+	git merge <nombre_rama>: Fusiona la rama nombre_rama en la rama actual.
+	git branch -d <nombre_rama>: Elimina una rama local si ha sido fusionada.
+6. Remotos (Remote Repositories)
+	git remote -v: Muestra las URLs de los repositorios remotos configurados.
+	git remote add <nombre_remoto> <url>: Añade un repositorio remoto con el nombre dado.
+	git fetch <nombre_remoto>: Descarga los cambios desde el repositorio remoto pero no los integra en tu rama actual.
+	git pull <nombre_remoto> <rama>: Descarga e integra los cambios desde el repositorio remoto a la rama actual.
+	git push <nombre_remoto> <rama>: Sube tus commits de la rama local especificada al repositorio remoto.
+7. Ver el Estado del Repositorio
+	git status: Muestra el estado de los archivos en el directorio de trabajo y el área de preparación, indicando qué cambios necesitan ser añadidos o confirmados.
+8. Deshacer Cambios
+	git reset <archivo>: Elimina un archivo del área de preparación pero conserva los cambios en el directorio de trabajo.
+	git reset --hard <commit>: Restablece el repositorio al estado del commit especificado, descartando todos los cambios posteriores.
+	git revert <commit>: Crea un nuevo commit que deshace los cambios de un commit anterior.
+9. Stash (Guardar Cambios Temporalmente)
+	git stash: Guarda temporalmente los cambios no confirmados en un "stash" para que puedas trabajar en otra cosa.
+	git stash pop: Aplica los cambios guardados en el último stash y lo elimina de la lista de stash.
+	git stash list: Muestra una lista de todos los stashes guardados.
+10. Etiquetas (Tags)
+	git tag: Lista todas las etiquetas en el repositorio.
+	git tag -a v1.0 -m "Versión 1.0": Crea una etiqueta anotada para el commit actual.
+	git push <nombre_remoto> --tags: Sube todas las etiquetas locales al repositorio remoto.
+11. Comparar Cambios
+	git diff: Muestra las diferencias entre el directorio de trabajo y el área de preparación.
+	git diff --staged: Muestra las diferencias entre el área de preparación y el último commit.
+12. Rebasing
+	git rebase <rama>: Aplica commits de la rama actual sobre la cabeza de otra rama. Esto reescribe el historial y es útil para mantener un historial de commits más limpio.

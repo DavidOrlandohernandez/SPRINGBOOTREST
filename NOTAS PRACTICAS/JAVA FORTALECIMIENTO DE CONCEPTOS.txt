@@ -1,0 +1,127 @@
+
+
+1.- Diferencias entre las versiones de Java 7, 8 y 17.
+2.- Principios SOLID.          *
+3.- Expreciones Lamda en JAVA. *
+4.- Uso de HashMaps.
+6.- Records en Java. 
+7.- Patrones de diseño.
+
+
+2.- Principios SOLID: 
+
+	1.- Single Responsability principle: 
+		Principio de responsabilidad unica. La idea de este principio es crear clases donde su mantenimiento sea facil 
+		de modificar y que se dediquen a una sola responsabilidad dentro del programa. Sin combinar una gran cantidad de 
+		metodos tal vez donde al estar estrechamente acoplados en una sola clase su mantenmiento segun el comportamiento 
+		de la clase se vuelve complicado. Un ejemplo muy sencillo puedes tener la clase Estudiante. Puedes separar la 
+		declaración de la clase con sus atributos y metodos basicos en una sola responsabiidad. Constructures, stter y 
+		getters. Ahora Alumno puede tener varios metodos como cargarMateris(), pagoColegiatura(), cargaHorarios(). Si 
+		bien al principio puede ser facil tener estos metodos en la misma clase pero esto violaria el principio de 
+		responsabilidad unica ya que cada metodo puede sufrir modificaciónes segun su necesidad lo ideal es agrupar estos
+		metodos en sus respectivas clases de responsabilidad donde puedan convivir con metodos similares en dicha clase 
+		o ser unicos segun el tamañano de este. Aqui se usa mucho el concepto de refactorizar
+		
+	2.- Open/Close Principle: that clases should be open for extension but closed for modification |
+		Agregar nuevas funcionalidades = Abierto a Extencion - Cerrado a modificacipon.
+		La idea de este principio es que las clases esten abiertas a ser utilizadas o extendibles pero cerradas a modificarse. 
+		un ejemplo algo simple es tienes una clase con diferentes metodos de calculación de tiempo por medio de un metodo 
+		orquestas el calculo y el llamado del metodo por medio de enumeradores aplicando un switch numero para invocar el 
+		metodo en especifico Ahora bien si necesio agregar un metodo nuevo de calcular el tiempo o modificar alguno ya existente 
+		tendria que modificar la clase donde se encentran cada metodo y el metodo orquestador para realizar dicha modificación 
+		esto viola el concepto de Cerrado para su modificación. Una correcta solución es crear una clase por cada metodo 
+		de calculo de tiempo segun su dominio por ejemplo si calcular Tiempo de entrenamiento, juegos, y educacion. Implementarias
+		una interfaz con un solo metodo de calculacion que puedes aplicar para cada tipo de topico y escribir su comportamiento 
+		de manera indempendiente. De esta forma no tendras que modificar cada clase por topico estaran cerradas a su modificación
+		y si nececitas agregar un nuevo metodo de calculo simplemente creareas una clase nueva e implementaras la interfaz
+		Ejemplo en codig: Calcular el area de unafigura geometrica. [SEPARACION DE COMPORTAMIENTOS POR MEDIO DE IMPLEMENTACION 
+		DE INTERFACES]
+		
+	3.- Liskov sustitution principle: Principio de sustitucion de liskov where subclas can be replaced for base clase.
+		Creo que puedes modificar o refactorizar las clases segun la nececidad en vez de crear jeraquias con metodos de la clase
+		base que no se van a utilizar en las subclases simplementes instancias una clase principal en lugar de heredar e implemntas
+		los metodos segun la nececidad especificia de cada clase sin tener que heradar todos los metodos inecesarios de esta manera
+		sustituyes una clase base por una clase general. 
+		
+		El comportamiento de las clases hijas no debe de modificar el comportamiento de la clase padre. El comportamiento debe mantenerse. 
+		Cuando extiendes de na clase padre algunos metodos no tienen sentido para esa clase y dejas el comportamiento pendiente o vacio. 
+		Si un metodo extendido no hace nada o simplemente enviamos o invocamos una excepcion estamos incumpliendo el principio de Liskov.
+		En estos casos nos vemos forzados a realizar una herencia mas especifica para cada caso. Y no siempre podremos heredar avces podemos 
+		implementar clases generales con el fin de dvidir comportamientos. Un ejemplo muy basico es la clase pajaro extendiendo en un tipo 
+		de ave que no puede volar como pinguino el metodo fly seria incesario por lo que tendrias que crear una clase especificas para 
+		habes voladoras y ahi agregarias el metodo fly mientras que la clase pajaria seria aun mas generica.  [APLICACION DE HERENCIA 
+		CON SUSTITUCIÖN ESPECIFICAS DE INTERFACES EN COMPORTAMIENTOS ESPECIFICOS]
+		
+	4.- Interface Segregation Principle: 
+		Este principio nos dice que implementar interfacez en clases donde no usaremos todos sus metodos es una forma incorrecta de 
+		de aplicar esta implementación. Tendriamos que segregar estas interfaces de tal manera que se encuentren especificas y con los 
+		metodos exlusivamente necesarios de acuerdo al comportamiento. A diferencia del principio de Liskov que permite especificar una 
+		herencia mas especializada acorde a el comportamiento de la clase Clase: Abe -> IClaseAbeVoladora -> ClasePajaro. Extenderiamos de
+		de una super clases  y una interfaz pero si tendria un abe que no vuela simplemente extenderia de la Abe padre Clase: Abe -> ClasePinguino por 
+		ejemplo. En cambio la segregacion de interfaces me permite si bien no extender implementar metodos de acuerdo al comportamiento de 
+		la clase implemetada sin aplicar metodos que no tengan relacion con la misma. [SEPARACION DE INTERFACES ESPECIFICAS]
+		
+	5.- Dependency inversion Principle: 
+		Las clases de alto nivel no deberian de depender de las clases de bajo nivel. Ambas deberian de depender de las abstracciones. 
+		y las abstracciones no deberian de depender de los detalles y los detalles deben de depender de las abstracciones. Si estamos 
+		haciendo una instanciancion dentro de otra clase compleja ya estamos incumpliendo el principio es como conbinar dos dominios
+		y sus logicas. La idea de este principio es poder implementar funcionalidades detalladas por medio de interfaces donde se ah 
+		abstraido un dominio de tal manera que no tendriamos la nececidad de instancias los objetos e invocar los metodos directamente 
+		si no lo podemos hacer por medio de estas interfaces segregadas usandolas en estas clases de alto nnivel 
+		https://www.youtube.com/watch?v=90uW1_l0Y3I 
+		Este diseño cumple con el principio de inversión de dependencias, ya que PaymentProcessor no depende de implementaciones concretas, 
+		sino de la abstracción PaymentService. Esto hace que el sistema sea más flexible, extensible y fácil de mantener.
+		
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+3.- Expreciones Lamda en JAVA. 
+	
+	¿Qué es una Expresión Lambda?
+	Una expresión lambda es una función anónima (es decir, una función sin nombre) que puede ser utilizada para implementar métodos definidos por una 
+	interfaz funcional. Una interfaz funcional es una interfaz que tiene un único método abstracto. Las expresiones lambda permiten escribir código de 
+	manera más concisa y expresiva.
+	
+	Operaciones con Stream.
+	Operaciones Intermedias: Son aquellas que transforman un stream en otro stream. Ejemplos: filter(), map(), sorted(), distinct().
+	Un Stream es una secuencia de elementos que se pueden procesar de manera paralela o secuencial. Los Streams permiten realizar operaciones en datos como filtrar, mapear, reducir, recolectar, etc., de una manera muy concisa y expresiva.
+
+	Cómo Funciona el Método stream()
+	El método stream() se utiliza para obtener un flujo (stream) de datos a partir de una colección, un array u otras fuentes de datos. Una vez que tienes un Stream, puedes realizar una serie de operaciones intermedias y terminales sobre él.
+	
+	https://www.youtube.com/watch?v=QrptTiBP5yk Clases anonimas
+	
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+7.- Patrones de diseño:
+
+		#1.- CREACIONALES
+		#2.- ESTRUCTURALES 
+		#3.- DE COMPORTAMIENTO
+		
+		
+		
+		1.- CREACIONALES.
+			* SINGLETON: MATERIAL DE YOUATUBE: https://www.youtube.com/watch?v=cNoxcc0ca4I
+			
+				   Es un patron de diseño creacional. Nos ayuda a la creación de objetos. Nos permite asegurarnos que una clase tenga una unica instancia.
+				   A a vez que proporcionan un punto de acceso globlal a dicha instancia. Tendremos un solo objeto para toda nuestra aplicación. Podremos 
+				   llamarlo desde diferentes clases. Uso: para conexiones de multplies bases de datos y pool de conexiones. 
+				   
+				   REGLAS DEL PATRON SINGLETON:
+				   1.- Debemos tener un constructor private : Para restringir la creación de objetos.
+				   2.- Debemos tener un atributo privado estatico.
+				   3.- Debemos tener un metodo estatico que devuelva la instancia. 
+				   
+				   Cuando se llame al mismo tiempo puede existir problemas de syncronización.  Es importante manejar la Syncronias de hilos. podemos dejar
+				   esta tarea para Java synchronized para que use un hilo a ala vez. Spring trabaja con el patron singleton en su interior usando singleton. 
+				   Cuando creamos un Bean regularmente usa Singleton y Prototype.
+			
+			* PROTOTYPE: MATERIAL DE YOUTUBE: https://www.youtube.com/watch?v=lyOGDHciNmk
+			
+			   Es un patron de diseño creacional. Nos ayuda a la creación de objetos. Nos permite copiar objetos existentes sin que el codigo dependa 
+			   de sus clases. 
+							Clonacion simple: Clonamos el objeto principal mas no los adyacentes. Algo parecido a una lista de objetos.
+							Clonacion profunda: Clonamos el objeto principal y adyacentes crea todo completamente nuevo a partir de lo que ya existente.
+							
+				Es importante crear la clase prototipo implementando la interfaz clonable y declarar los metodos clone y deepclone. En cada clase podemos
+				implementar esta interfaz prototype y definir los metodos de clonación. Investigando este patron se usa mas en proyecto de graficación 

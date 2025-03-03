@@ -1,0 +1,78 @@
+
+
+Un contenedor donde se encuentra los requerimientos necesarios para poder correr.
+
+VIDEO: https://www.youtube.com/watch?v=CV_Uf3Dq-EU
+NOTA: Docker va correr un contenedor a partir de una 
+imagen. Para correr una contenedor necesito una imagen 
+Necesita lo siguiente:
+
+Esto conforma una imagen
+- OS       - de Linux
+- Software - Java
+- app      - Componente final 
+
+- Una imagen se genera con la creación o definición del DockerFile. 
+
+Estructura de dockerfile: 
+	----------------
+	FROM: Ubuntu
+	RUN: apt-get install
+	COPY: code / var/ www
+	CMD: [Java - jar]
+	----------------
+	
+	Comandos: 
+	docker build: Construye la imagen
+	docker run: Ejecuta la imagen -> Posterior se genera un contenedor corriendo.
+	docker pull: Descarga la imagen pero no la va correr. Ejemplo docker pull ubuntu -  Puedes descargar la ultima versión 
+	docker images | head: Muestra las imagenes que se encuentran corriendo en contenedores. el Head es solo lo escenacial
+	docker ps: muestras los contenedores que estamos corriendo.
+	docker ps -a: tdos los contendores que corrieron hace un tiempo 
+		NOTA: Docker tiene un garbage collector asi que no vas a poder todos los conetendores que corriste con anterioridad.
+		NOTA: con ctl + c puedes frenar los contendores.
+		NOTA: No es recomandable manejar percistencia en los contenedores ya que solo fungen como instancias. Al liminarlo se borra todo o bien se puede ejcutar con el ID para correr con datos anteriores.
+	docker logs: ver el log de ejecución del contenedor en cuestion
+	docker logs -f "ID" O "NAME": Puede mostrar el log en tiempo real de la ejecucion del contendor 
+		NOTA: Se recomuenda que tu aplicación maneja estandar output terminal para ver los logs esto para no colocar los logs en ningun documento incesario. El Deamon lo puede obtener 
+	docker exec: Ejecuta un comando de un contenedor que ya esta corriendo
+	docker exec -it ID/NAME sh: Podemos simular una shell para estar dentro de ese contenedor. y ejecutar comandos linux por ejemplo para navergar. como los siguientes ls: Listado de directorios -i Sesion interactiva - emular una terminal
+	docker start + ID/NAME : inicias un contenedor detenido 
+	docker stop + ID/NAME  : Detiene un contenidor corriendo 
+	
+	-----------------------------------------------------------
+	docker build .  : construccion del contenedor
+	docker build -t getting-started : Se tagea para uso mas practic
+	docker run getting-started : Ejecutar la imagen que acabamos de crear No nos va responder al puerto expuesto internamente ya que esa en la red de docker.
+	docker run -dp 3000:3000 getting-started: Se expondra en un puerto publico de la red en backgorund
+	
+	docker run -d -v C:\Users\DAVID\Documents\GitHub\peladonerd\docker\12\app\etc:/etc/todos  -p 3000:3000 getting-started : Con este comando puedes correr tu imagen creando un volumen en disco para compartir la base de datos todo.db De est amanera al borrar un contendore o pausarlo no se borrara ya que todos usaran dicho volumen -- 
+	
+	docker run -d -v C:\Users\DAVID\Documents\GitHub\peladonerd\docker\12\app\etc:/etc/todos  -p 3000:3000 -v C:\Users\DAVID\Documents\GitHub\peladonerd\docker\12\app\src:/app/src getting-started : Agregando unvolumen de la carpeta src puedes modificar en vivo en el contenedor.
+	
+	docker login : Crear cuenta en docker hub y logearse con ss keys
+	docker push nombreimegane: para pulicar mi imagen especifica en citio .
+	
+	
+	CMD VS ENTRYPOINT: Le tendria que pasar como argunto el comando un poco mas dinamico. El CMD es fijo. 
+	
+	
+:::::USANDO POSTGRES DESDE Docker
+
+docker run postgres: -- Puedes espescificar con el tag de la version expuesto en docker HUB
+docker run -e POSTGRES_PASSWORD=password
+
+Nota: podemos correr diferentes versiones de postgres o cualquier otra instancia en el mismo servidor 
+
+
+
+Ejemplo:
+docker run -d -v \Users\DAVID\Documents\GitHub\peladonerd\docker\12\app\etc:\etc\todos -p 3000:3000 getting-started
+Para Windows: 
+docker run -d -v C:\Users\DAVID\Documents\GitHub\peladonerd\docker\12\app\etc:/etc/todos  -p 3000:3000 getting-started
+
+CREACION DE VOLUMENES --
+docker run -d -v C:\Users\DAVID\Documents\GitHub\peladonerd\docker\12\app\etc:/etc/todos  -p 3000:3000 -v C:\Users\DAVID\Documents\GitHub\peladonerd\docker\12\app\src:/app/src getting-started
+
+
+

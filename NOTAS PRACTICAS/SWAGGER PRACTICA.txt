@@ -1,0 +1,16 @@
+DOCUMENTACIÓN DE USO DE SWAGER : https://www.youtube.com/watch?v=SVZZ3B5gwuM + MATERIAL:https://github.com/UnProgramadorNaceOfficial/swagger-docs-spring
+
+	
+	URL: DOCUMENTACIÓN OFICIAL DE SWAGER: 
+	https://springdoc.org/#getting-started
+
+	DEPENDENCIA AREGADA AL COMPONENTE:
+	<dependency>
+		<groupId>org.springdoc</groupId>
+		<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+		<version>2.6.0</version>
+	</dependency>
+	
+	MAPEO DE API PARA SWAGER OPEN API:
+	http://localhost:8080/swagger-ui/index.html#/
+	
