@@ -1,15 +1,11 @@
 package com.local.credit.controller;
-
 import com.local.credit.controller.dto.CustomerDto;
-import com.local.credit.controller.dto.ResponseEntityGlobal;
 import com.local.credit.entities.Customer;
-import com.local.credit.repository.ProductRepository;
+import com.local.credit.mapper.CustomerMapper;
 import com.local.credit.service.ICustomerService;
-import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -25,7 +21,11 @@ public class CostumerController {
 
     @GetMapping("/findAll")
     public ResponseEntity<?> findAll() {
-        List<CustomerDto> customerDtos = customerService.findAll()
+
+        List<CustomerDto> customerDto = CustomerMapper.
+                INSTANCE.customersToCustomersDto(customerService.findAll());
+
+        /*List<CustomerDto> customerDtos = customerService.findAll()
                 .stream()
                 .map(customer -> CustomerDto.builder()
                         .id(customer.getId())
@@ -36,12 +36,13 @@ public class CostumerController {
                         .description(customer.getDescription())
                         .build()).
                 toList();
+
         /*List<Customer> customerList = customerService.findAll();
         ResponseEntityGlobal response = new ResponseEntityGlobal();
         response.setMessage("Ok");
         response.setType(1);
         response.setData(customerList);*/
-        return ResponseEntity.ok(customerDtos);
+        return ResponseEntity.ok(customerDto);
     }
 
     @GetMapping("/findById/{id}")
@@ -51,7 +52,9 @@ public class CostumerController {
        if (optionalCustomer.isPresent()) {
            Customer customer = optionalCustomer.get();
 
-           CustomerDto customerDto = CustomerDto
+           CustomerDto customerDto = CustomerMapper.
+                   INSTANCE.customerToCustomerDto(customer);
+           /*CustomerDto
                    .builder()
                        .id(customer.getId())
                        .name(customer.getName())
@@ -59,7 +62,7 @@ public class CostumerController {
                        .phone(customer.getPhone())
                        .email(customer.getEmail())
                        .description(customer.getDescription())
-                   .build();
+                   .build();*/
 
            return ResponseEntity.ok(customerDto);
 
@@ -72,17 +75,19 @@ public class CostumerController {
         if(customerDto.getName().isBlank()){
             return ResponseEntity.badRequest().build();
         }
-        customerService.save(Customer
+
+        customerService.save(CustomerMapper.
+                INSTANCE.customerDtoToCustomer(customerDto));
+                /*Customer
                 .builder()
                     .name(customerDto.getName())
                     .address(customerDto.getAddress())
                     .phone(customerDto.getPhone())
                     .email(customerDto.getEmail())
                     .description(customerDto.getDescription())
-                .build());
+                .build());*/
         return ResponseEntity.created(new URI("/api/local/credit")).build();
     }
-
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable int id) throws URISyntaxException {
@@ -95,4 +100,5 @@ public class CostumerController {
 
         return ResponseEntity.badRequest().build();
     }
+
 }
