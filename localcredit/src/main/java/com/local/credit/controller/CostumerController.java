@@ -23,7 +23,7 @@ public class CostumerController {
     public ResponseEntity<?> findAll() {
 
         List<CustomerDto> customerDto = CustomerMapper.
-                INSTANCE.customersToCustomersDto(customerService.findAll());
+                INSTANCE.customerList(customerService.findAll());
 
         /*List<CustomerDto> customerDtos = customerService.findAll()
                 .stream()
