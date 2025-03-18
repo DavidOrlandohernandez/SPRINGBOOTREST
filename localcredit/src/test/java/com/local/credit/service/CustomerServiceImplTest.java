@@ -10,6 +10,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -35,5 +36,24 @@ public class CustomerServiceImplTest {
         assertFalse(customersList.isEmpty());
         assertEquals("David Orlando uno", customersList.get(0).getName());
         verify(this.customerDao).findAll();
+    }
+
+    @Test
+    public void testFindById(){
+
+        //Given
+        Long id = 1L;
+
+        //When
+        when(this.customerDao.findById(anyLong())).thenReturn(DataProvider.optionalCustomerMock());
+        Optional<Customer> optionalCustomer = this.customerService.findById(id);
+        Customer customer = optionalCustomer.orElseThrow();
+
+        //Then
+        assertNotNull(optionalCustomer);
+        assertNotNull(customer);
+        assertEquals("David Orlando tres", customer.getName());
+        verify(this.customerDao, times(1)).findById(anyLong()); // El verify solo se utiliza con la dependencia
+
     }
 }
