@@ -77,7 +77,7 @@ public class CustomerServiceImplTest {
         Long id = 1L;
         //When
         this.customerService.deleteById(id);
-       System.out.println("-> Test Customer | Mocks | deleteById");
+        System.out.println("-> Test Customer | Mocks | deleteById");
         //Then
         ArgumentCaptor<Long> longArgumentCaptor = ArgumentCaptor.forClass(Long.class);
         verify(this.customerDao).deleteById(anyLong());
