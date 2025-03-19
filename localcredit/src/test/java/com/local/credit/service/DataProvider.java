@@ -25,5 +25,10 @@ public class DataProvider {
         return  optionalCustomer;
     }
 
+    public static Customer customerNewMock(){
+        System.out.println("-> Test Customer | Mocks | save");
+        return new Customer(4L, "David Orlando cuatro", "Vistas del lago","6674941679", "david@gmail.com", "Hombre");
+    }
+
 
 }

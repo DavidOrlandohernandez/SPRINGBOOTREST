@@ -4,6 +4,7 @@ import com.local.credit.entities.Customer;
 import com.local.credit.persistence.impl.CustomerDaoImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -54,6 +55,34 @@ public class CustomerServiceImplTest {
         assertNotNull(customer);
         assertEquals("David Orlando tres", customer.getName());
         verify(this.customerDao, times(1)).findById(anyLong()); // El verify solo se utiliza con la dependencia
+    }
+
+    @Test
+    public void testSave(){
+        //Given
+        Customer customer = DataProvider.customerNewMock();
+        //When
+        this.customerService.save(customer);
+        //Then
+        ArgumentCaptor<Customer> playerArgumentCaptor = ArgumentCaptor.forClass(Customer.class);
+        verify(this.customerDao).save(any(Customer.class));
+        verify(this.customerDao).save(playerArgumentCaptor.capture());
+        assertEquals(4L, playerArgumentCaptor.getValue().getId());
+        assertEquals("David Orlando cuatro", playerArgumentCaptor.getValue().getName());
+    }
+
+   @Test
+    public void testDeleteById(){
+        //Given
+        Long id = 1L;
+        //When
+        this.customerService.deleteById(id);
+       System.out.println("-> Test Customer | Mocks | deleteById");
+        //Then
+        ArgumentCaptor<Long> longArgumentCaptor = ArgumentCaptor.forClass(Long.class);
+        verify(this.customerDao).deleteById(anyLong());
+        verify(this.customerDao).deleteById(longArgumentCaptor.capture());
+        assertEquals(1L, longArgumentCaptor.getValue());
 
     }
 }

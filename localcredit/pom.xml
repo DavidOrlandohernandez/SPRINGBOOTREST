@@ -175,7 +175,11 @@
 						</goals>
 						<configuration>
 							<excludes>
+								<exclude>**/entities/**</exclude>
 								<exclude>**/entities/Customer.class</exclude>
+								<exclude>**/dto/**</exclude>
+								<exclude>**/mapper/**</exclude>
+								<exclude>**/LocalCreditApplication.class/**</exclude>
 							</excludes>
 						</configuration>
 					</execution>
