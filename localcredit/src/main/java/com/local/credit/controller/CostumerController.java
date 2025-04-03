@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -131,7 +132,7 @@ public class CostumerController {
             }
     )
     @PostMapping("/save")
-    public ResponseEntity<?> save(@RequestBody CustomerDto customerDto) throws URISyntaxException {
+    public ResponseEntity<?> save(@RequestBody @Valid CustomerDto customerDto) throws URISyntaxException {
         if(customerDto.getName().isBlank()){ return ResponseEntity.badRequest().build(); }
 
         customerService.save(CustomerMapper.
@@ -162,7 +163,6 @@ public class CostumerController {
                             content = @Content(
                                     schema = @Schema(format = "Elemento eliminado como suceso")
                             )
-
                     )
             }
     )
