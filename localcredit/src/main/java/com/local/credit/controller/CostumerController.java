@@ -169,12 +169,10 @@ public class CostumerController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable int id) throws URISyntaxException {
         Optional<Customer> OptionalCustomer = customerService.findById((long)id);
-
         if (OptionalCustomer.isPresent()) {
             customerService.deleteById((long)id);
             return ResponseEntity.ok("Elemento eliminado como suceso");
         }
-
         return ResponseEntity.badRequest().build();
     }
 }

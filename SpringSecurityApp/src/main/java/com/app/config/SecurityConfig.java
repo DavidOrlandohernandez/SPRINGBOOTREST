@@ -108,6 +108,6 @@ public class SecurityConfig {
     }
 
     public static void main(String[] args) {
-        System.out.println("Password: " + new BCryptPasswordEncoder().encode("1234") );
+        System.out.println("Password: " + new BCryptPasswordEncoder().encode("1234"));
     }
 }
